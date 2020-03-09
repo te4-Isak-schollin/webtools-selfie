@@ -1,13 +1,18 @@
 <template>
     <footer id="social">
-        <a :href="fb"><img src="/static/social-fb.svg" alt="Share on Facebook"></a>
-        <a :href="twitter"><img src="/static/social-twitter.svg" alt="Share on Twitter"></a>
+        <wtsociallink :link="fb" image="/static/social-fb.svg" text="Share on Facebook"/>
+        <wtsociallink :link="twitter" image="/static/social-twitter.svg" text=" Share on Twitter"/>
     </footer>
 </template>
 
 <script>
 
+import wtsociallink from '@/components/SocialLink.vue'
+
 export default {
+    components: {
+        wtsociallink
+    },
     name: 'social',
     data() {
         return {
@@ -28,23 +33,4 @@ export default {
     right: .75rem;
     text-align: right;
 }
-
-#social a {
-    opacity: .6;
-}
-
-#social a:hover {
-    opacity: .8;
-}
-
-#social a:active {
-    opacity: 1;
-}
-
-#social img {
-    width: 1.5rem;
-    margin: 0 .25rem;
-
-}
-
 </style>
