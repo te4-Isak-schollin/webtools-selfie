@@ -24,10 +24,10 @@ export default new Vuex.Store({
     pickName(state, timing){
       
       let activeGroupie = this.state.activeGroupie;
-      activeGroupie.nameList.shift();
+      let excludedName = activeGroupie.nameList.shift();
 
       setTimeout(()=>{  
-        this.state.pickedNames.push(activeGroupie.nameList[0]);
+        this.state.pickedNames.push(excludedName);
         this.state.activeGroupie = activeGroupie;
       },timing);
     

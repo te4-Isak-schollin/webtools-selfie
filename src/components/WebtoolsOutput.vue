@@ -91,9 +91,6 @@ export default {
             return arr;
         }
     },
-    created(){
-        this.$store.commit(`setPickedName`);
-    }
 };
 
 // Fisher Yates shuffle
