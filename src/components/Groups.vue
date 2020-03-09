@@ -4,7 +4,7 @@
         <main class="centercontainer">
             <a href="#" id="add-group" @click="saveGroup">Spara grupp</a>
             <section class="grid-container">
-                <article v-for="(group, index) in savedGroups">
+                <article v-bind:key="index" v-for="(group, index) in savedGroups">
                     <h1 @click="populateNameList(index)">{{ group.groupName }}</h1>
                     <h2 @click="populateNameList(index)"> {{ group.groupMembers.length }} medlemmar</h2>
                     <a href="#" class="remove-group" @click="removeListItem(index)">Ta bort</a>

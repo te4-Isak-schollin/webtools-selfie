@@ -2,7 +2,7 @@
   "name": "selfie-3.0",
   "version": "1.0.0",
   "description": "Kickass namepicker.",
-  "author": "Johan Kivi <johan.kivi@itggot.se>",
+  "author": "Johan Kivi <johan.kivi@itggot.se>, Isak Schöllin",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

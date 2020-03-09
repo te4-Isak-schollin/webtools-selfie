@@ -4,14 +4,10 @@
     <section id="input">
         <div class="group-length"><b>{{ nameListLength }}</b> namn i listan</div>
         <textarea id="name-list" v-model="updateList" @change="validateList"></textarea>
-        <div class="group-name" @click="excludeName = !excludeName">
-            <div id="input-group-name" :class="{ selected: excludeName }"></div>
-            <h3>Exkludera draget namn</h3>
-        </div>
-        <div class="group-leader" @click="showPicked = !showPicked">
-            <div id="input-group-leader" :class="{ selected: showPicked }"></div>
-            <h3>Visa dragna namn</h3>
-        </div> 
+       
+        <wtinputlink classes="group-name" @onClickEvent="excludeName = !excludeName" id="input-group-name" :methods="{ selected: excludeName} " text="Exkludera draget namn"/>
+        <wtinputlink classes="group-leader" @onClickEvent="showPicked = !showPicked" id="input-group-leader" :methods="{ selected: showPicked }" text="Visa dragna namn"/>
+
         <a href="#" @click="go" id="create-groups">Slump me some namn</a>
     </section>
     <social/>
@@ -22,12 +18,14 @@
 
 import wtmenu from '@/components/Menu';
 import social from '@/components/Social';
+import wtinputlink from '@/components/WtInputLink.vue';
 
 export default {
     name: 'wt-input',
     components: {
         wtmenu,
-        social
+        social,
+        wtinputlink
     },
     data() {
         return {
@@ -141,41 +139,6 @@ function shuffle(array) {
     border-top-right-radius: 3px;
 }
 
-
-#input h3 {
-    margin: 0;
-    padding: 0;
-}
-
-#input .group-name {
-    grid-area: group-name;
-    background: #E6E6E6;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    padding: 0 0 0 1rem;
-}
-
-#input .group-leader {
-    grid-area: group-leader;
-    background: #DBDBDB;
-    display: flex;
-    align-items: center;
-    padding: 0 0 0 1rem;
-}
-
-#input-group-name, #input-group-leader {
-    width: 1.2rem;
-    height: 1.2rem;
-    border: 1px solid #4B4A57;
-    border-radius: 3px;
-    margin: 0 1rem 0 0;
-}
-
-#input-group-name.selected, #input-group-leader.selected {
-    background: #4B4A57 url('/static/icon-close-white.svg') no-repeat;
-    background-size: 100%;
-}
 
 #input #group-style-members {
     grid-area: group-style-members;

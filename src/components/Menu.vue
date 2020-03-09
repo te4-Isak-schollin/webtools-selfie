@@ -1,21 +1,8 @@
 <template>
     <nav>
-        <a href="#" @click="showGroups" v-if="!checkState">
-            <div class="icon">
-                <img src="/static/icon-nav.svg" alt="Sparade Grupper">
-            </div>
-            <div class="tip">
-                <span class="label">Hantera Grupper</span>
-            </div>
-        </a>
-         <a href="#" v-if="checkState" @click="back">
-            <div class="icon">
-                <img src="/static/icon-back.svg" alt="Tillbaka">
-            </div>
-            <div class="tip">
-                <span class="label">Tillbaka</span>
-            </div>
-        </a>
+        <wtmenulink @onClickEvent="showGroups" :isShown="!checkState" label="Hantera Grupper" img="/static/icon-nav.svg" text="Sparade grupper"/>
+        <wtmenulink @onClickEvent="back" :isShown="checkState" label="Tillbaka" img="/static/icon-back.svg" text="Tillbaka"/>
+
         <!--
             <a href="#" @click="remote" v-if="checkState">
             <div class="icon">
@@ -30,10 +17,15 @@
 </template>
 
 <script>
+import wtmenulink from '@/components/MenuLink.vue';
+
 export default {
     name: 'wt-menu',
+    components: {
+        wtmenulink
+    },
     data(){
-       return {
+       return { 
         }
     },
     methods: {
@@ -66,7 +58,6 @@ nav {
     height: 300px;
     z-index: 9;
 }
-
 nav a {
     display: flex;
     flex: 1;
@@ -74,27 +65,16 @@ nav a {
     margin: 0 0 .75rem 0;
 }
 
-nav a .icon {
-    flex: .4;
-    display: flex;
 
-}
-
-nav a .tip {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-nav a:hover .icon img, nav a.active .icon img {
+ nav a:hover .icon img,  a.active .icon img {
     background: rgba(255,255,255,1);
 }
 
-nav a:active .icon img {
+ nav a:active .icon img {
     background: rgba(255,255,255,1);
 }
 
-nav a img {
+ nav a img {
     height: 2rem;
     width: 2rem;
     padding: .6rem;
@@ -102,7 +82,7 @@ nav a img {
     background: rgba(255,255,255,.8);
 }
 
-nav a span.label { 
+ nav a span.label { 
     background: #4B4A57;
     position: relative;
     color: white;
@@ -111,7 +91,7 @@ nav a span.label {
     display: none;
 }
 
-nav a span.label:after {
+ nav a span.label:after {
 	right: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -126,7 +106,7 @@ nav a span.label:after {
 	margin-top: -5px;
 }
 
-nav a:hover span.label {
+ nav a:hover span.label {
     display: block;
     animation: slide .2s ease;
 }
