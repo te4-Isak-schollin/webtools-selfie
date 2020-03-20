@@ -1,10 +1,10 @@
 <template>
     <a href="#" v-show="isShown" @click="emit()">
         <div class="icon">
-            <img :src="img" :alt="text">
+            <slot :images="images"> </slot>
         </div>
         <div class="tip">
-            <span class="label">{{label}}</span>
+            <span class="label"><slot name="label"></slot></span>
         </div>
     </a>
 
@@ -15,9 +15,7 @@
 
 export default {
     name: 'wt-menu-link',
-    props: { label: String, 
-            text: String , 
-            img: String, 
+    props: { 
             isShown: Boolean
     },
     methods: {
@@ -25,6 +23,14 @@ export default {
             this.$emit("onClickEvent")
         },
        
+    },
+    data:function() {
+        return {
+            images: {
+                saved: "/static/icon-nav.svg",
+                back: "/static/icon-back.svg"
+            }
+        }
     }
     
 }

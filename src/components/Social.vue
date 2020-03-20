@@ -1,7 +1,11 @@
 <template>
     <footer id="social">
-        <wtsociallink :link="fb" image="/static/social-fb.svg" text="Share on Facebook"/>
-        <wtsociallink :link="twitter" image="/static/social-twitter.svg" text=" Share on Twitter"/>
+        <wtsociallink v-slot="slotProps" :link="fb">
+            <img :src="slotProps.social.facebook" :alt="slotProps.social.faceB">
+        </wtsociallink>
+        <wtsociallink v-slot="slotProps" :link="twitter">
+        <img :src="slotProps.social.twitter" :alt="slotProps.social.twittr" > 
+        </wtsociallink>
     </footer>
 </template>
 
@@ -14,6 +18,7 @@ export default {
         wtsociallink
     },
     name: 'social',
+    
     data() {
         return {
                 fb: `https://www.facebook.com/sharer/sharer.php?u=https%3A//webtools.itgonline.se/appar/v3/selfie/%23/`,

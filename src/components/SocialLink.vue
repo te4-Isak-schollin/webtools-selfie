@@ -1,13 +1,26 @@
 <template>
     <a :href="link">
-        <img :src="image" :alt="text">
+        <slot :social="social"> </slot>
     </a>
 </template>
 
 <script>
 export default {
     name: 'wt-social-link',
-    props: ["link", "image", "text"]
+    props: ["link", "image", "text"],
+    
+    data:function() {
+        return {
+            social: {
+                facebook: "/static/social-fb.svg",
+                twitter: "/static/social-twitter.svg",
+                faceB: "share on Facebook",
+                twittr: "share on Twitter"
+                
+            },
+        }
+    }
+
   
 }
 </script>

@@ -1,8 +1,18 @@
 <template>
     <nav>
-        <wtmenulink @onClickEvent="showGroups" :isShown="!checkState" label="Hantera Grupper" img="/static/icon-nav.svg" text="Sparade grupper"/>
-        <wtmenulink @onClickEvent="back" :isShown="checkState" label="Tillbaka" img="/static/icon-back.svg" text="Tillbaka"/>
-
+        <wtmenulink @onClickEvent="showGroups" :isShown="!checkState" >
+            <template v-slot="slotProps">
+                <img :src="slotProps.images.saved" alt="Sparade grupper">
+            </template>
+            <template v-slot:label>Hantera grupper</template>
+        </wtmenulink>
+        <wtmenulink @onClickEvent="back" :isShown="checkState" >
+            <template v-slot="slotProps">
+                <img :src="slotProps.images.back" alt="Tillbaka">
+            </template>
+            <template v-slot:label>Tillbaka</template>
+        </wtmenulink>
+<!-- label="Tillbaka" img="/static/icon-back.svg" text="Tillbaka" -->
         <!--
             <a href="#" @click="remote" v-if="checkState">
             <div class="icon">

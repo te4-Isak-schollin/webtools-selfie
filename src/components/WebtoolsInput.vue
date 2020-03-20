@@ -5,8 +5,17 @@
         <div class="group-length"><b>{{ nameListLength }}</b> namn i listan</div>
         <textarea id="name-list" v-model="updateList" @change="validateList"></textarea>
        
-        <wtinputlink classes="group-name" @onClickEvent="excludeName = !excludeName" id="input-group-name" :methods="{ selected: excludeName} " text="Exkludera draget namn"/>
-        <wtinputlink classes="group-leader" @onClickEvent="showPicked = !showPicked" id="input-group-leader" :methods="{ selected: showPicked }" text="Visa dragna namn"/>
+        <!-- <wtinputlink classes="group-name" @onClickEvent="excludeName = !excludeName" id="input-group-name" :methods="{ selected: excludeName} " text="Exkludera draget namn"/> -->
+        <!-- <wtinputlink classes="group-leader" @onClickEvent="showPicked = !showPicked" id="input-group-leader" :methods="{ selected: showPicked }" text="Visa dragna namn"/> -->
+        
+        <wtinputlink class="group-name" @onClickEvent="excludeName = !excludeName">
+                <div id="input-group-name" :class="{ selected: excludeName }"></div>
+                <h3> Exkludera draget namn </h3>
+        </wtinputlink>
+        <wtinputlink class="group-leader" @onClickEvent="showPicked = !showPicked">
+                <div id="input-group-leader" :class="{ selected: showPicked }"></div>
+                <h3> Visa dragna namn </h3>
+        </wtinputlink>
 
         <a href="#" @click="go" id="create-groups">Slump me some namn</a>
     </section>

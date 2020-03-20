@@ -1,7 +1,6 @@
 <template>
-    <div :class="classes" @click="emit()">
-        <div :id="id" :class="methods"></div>
-            <h3>{{text}}</h3>
+    <div @click="emit()">
+    <slot></slot>
     </div>
 </template>
 
@@ -9,12 +8,6 @@
 
 export default {
     name: 'wt-input-link',
-    props: {
-        classes: String,
-        id: String,
-        methods: Boolean,
-        text: String
-    },
 
     methods: {
         emit() {
