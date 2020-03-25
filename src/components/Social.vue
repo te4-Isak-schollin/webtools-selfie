@@ -1,10 +1,10 @@
 <template>
     <footer id="social">
         <wtsociallink v-slot="slotProps" :link="fb">
-            <img :src="slotProps.social.facebook" :alt="slotProps.social.faceB">
+            <img :src="slotProps.social.facebook.link" :alt="`share on ${slotProps.social.facebook.name}!`">
         </wtsociallink>
         <wtsociallink v-slot="slotProps" :link="twitter">
-        <img :src="slotProps.social.twitter" :alt="slotProps.social.twittr" > 
+        <img :src="slotProps.social.twitter.link" :alt="`share on ${slotProps.social.twitter.name}!`"> 
         </wtsociallink>
     </footer>
 </template>

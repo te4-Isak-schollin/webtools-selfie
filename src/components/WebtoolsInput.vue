@@ -4,9 +4,6 @@
     <section id="input">
         <div class="group-length"><b>{{ nameListLength }}</b> namn i listan</div>
         <textarea id="name-list" v-model="updateList" @change="validateList"></textarea>
-       
-        <!-- <wtinputlink classes="group-name" @onClickEvent="excludeName = !excludeName" id="input-group-name" :methods="{ selected: excludeName} " text="Exkludera draget namn"/> -->
-        <!-- <wtinputlink classes="group-leader" @onClickEvent="showPicked = !showPicked" id="input-group-leader" :methods="{ selected: showPicked }" text="Visa dragna namn"/> -->
         
         <wtinputlink class="group-name" @onClickEvent="excludeName = !excludeName">
                 <div id="input-group-name" :class="{ selected: excludeName }"></div>

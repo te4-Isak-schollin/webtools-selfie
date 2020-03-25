@@ -12,10 +12,14 @@ export default {
     data:function() {
         return {
             social: {
-                facebook: "/static/social-fb.svg",
-                twitter: "/static/social-twitter.svg",
-                faceB: "share on Facebook",
-                twittr: "share on Twitter"
+                facebook: {
+                    name:"Facebook",
+                    link:"/static/social-fb.svg"
+                },
+                twitter: {
+                    name:"Twitter",
+                    link:"/static/social-twitter.svg"
+                }
                 
             },
         }
