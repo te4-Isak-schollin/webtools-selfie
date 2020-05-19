@@ -4,8 +4,8 @@
         <section id="output">
             <article class="left">
                 
-            </article>
-            <article class="main">
+            </article> 
+            <wtnamelist class="main">
                 <h1 id="active-name" :class="{ spin: spin}">
                     <section class="slider">
                         <span class="name" v-for="name in activeGroupie.nameList" :key="name">{{ name }}</span>
@@ -14,24 +14,30 @@
                     <a v-if="activeGroupie.nameList.length > 0" class="big-btn" @click="getName">{{ btnText }}</a>
                     <a v-if="activeGroupie.nameList.length < 1" class="big-btn" @click="resetNames">Restart namn</a>
                     <p v-if="activeGroupie.excludeName" class="names-left">{{ activeGroupie.nameList.length }} namn kvar</p>
-            </article>
-            <article class="right">
+            </wtnamelist>
+                <wtnamepicker class="right">
                 <ul class="picked-names" v-if="activeGroupie.showPicked">
                     <li v-for="(name, index) in pickedNames" :key="index">{{name}}</li>
                 </ul>
-            </article>
-        </section>
+            </wtnamepicker>
+        </section> 
     </div>
 </template>
 
 <script>
 
 import wtmenu from '@/components/Menu';
+import wtnamepicker from '@/components/NamePicker.vue'
+import wtnamelist from '@/components/NameList.vue'
+import io from 'socket.io-client';
+ 
 
 export default {
     name: 'wt-output',
     components: {
-        wtmenu
+        wtmenu,
+        wtnamepicker,
+        wtnamelist
     },
     data(){
         return {
@@ -39,6 +45,7 @@ export default {
             btnText: `Slump me a namn`
         }
     },
+    
     methods:{
         resetNames(){
 
@@ -91,7 +98,16 @@ export default {
             return arr;
         }
     },
+    created(){
+    const socket = io('http://localhost:3000');
+
+    socket.on('select'), (data) => {
+        console.log('hej')
+    }
+
+    }
 };
+
 
 // Fisher Yates shuffle
 function shuffle(array) {

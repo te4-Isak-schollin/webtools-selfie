@@ -12,6 +12,7 @@
             </template>
             <template v-slot:label>Tillbaka</template>
         </wtmenulink>
+
 <!-- label="Tillbaka" img="/static/icon-back.svg" text="Tillbaka" -->
         <!--
             <a href="#" @click="remote" v-if="checkState">
@@ -23,6 +24,7 @@
             </div>
         </a>
         -->
+        
     </nav>
 </template>
 
