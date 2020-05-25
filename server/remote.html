@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <button class="slumpa">slumpa</button>
+    <!-- <button class="something">Send hello to def</button>
+    <button class="join_abc">join abc</button>
+    <button class="join_def">join def</button> -->
+    <ul id="messages"> </ul>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+var socket = io();
+
+document.querySelector('.slumpa').addEventListener('click', () => {
+    socket.emit('spin', {spin: true})
+    })
+
+    // socket.on('msg', function(data){
+    //     console.log(data)
+    // })
+
+    // document.querySelector('.join_def').addEventListener('click', () => {
+    // socket.emit('hello', {room:'def'})
+    // })
+
+    // document.querySelector('.something').addEventListener('click', () => {
+    // socket.emit('msg', {room:'def'})
+    // })
+
+</script>
+</body>
+</html>

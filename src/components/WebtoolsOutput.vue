@@ -101,13 +101,12 @@ export default {
     created(){
     const socket = io('http://localhost:3000');
 
-    socket.on('select'), (data) => {
-        console.log('hej')
+    socket.on('select', (data) => {
+    // Trigga spin
+    this.getName()
+        })
     }
-
-    }
-};
-
+}
 
 // Fisher Yates shuffle
 function shuffle(array) {
